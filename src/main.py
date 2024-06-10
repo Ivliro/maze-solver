@@ -3,7 +3,6 @@ from cell import Cell
 from maze import Maze
 
 def main():
-    #print('hello world')
     win = Window(800,600)
     # win.draw_line(Line(Point(0,0), Point(50,50)), "black")
     # win.draw_line(Line(Point(0,50), Point(50,0)), "black")
@@ -26,7 +25,12 @@ def main():
 
     # cell2.draw_move(cell3,True)
 
-    maze = Maze(0,0,10,10,50,50,win)
+    maze = Maze(1,1,10,10,50,50,win)
+    maze._break_entrance_and_exit()
+    maze._break_walls_r(0,0)
+    maze._reset_cells_visited()
+
+    maze.solve()
 
     win.wait_for_close()
 
